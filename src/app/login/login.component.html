@@ -6,16 +6,19 @@
       @if (form.get('usuario')?.invalid && form.get('usuario').touched) {
 
         <small *ngIf="form.get('usuario')?.errors?.['required']" class="text-danger">El email es obligatorio.</small>
-        <small *ngIf="form.get('usuario')?.errors?.['email']" class="text-danger">Debe tener formato</small>
+        <small *ngIf="form.get('usuario')?.errors?.['email']" class="text-danger">Debe tener formato email</small>
       }
     </div>
     <div class="mb-3">
       <label for="exampleInputPassword1" class="form-label">Clave</label>
       <input type="password" formControlName="clave" class="form-control" id="exampleInputPassword1">
+     
       @if (form.get('clave')?.invalid && form.get('clave').touched) {
 
         <small *ngIf="form.get('clave')?.errors?.['required']" class="text-danger">La contraseña es obligatorio.</small>
-        <small *ngIf="form.get('clave')?.errors?.['minLenght']" class="text-danger">Debe tener 10 caracteres</small>
+        <small *ngIf="form.get('clave')?.errors?.['minlength']" class="text-danger">Debe tener formato 10 caracteres</small>
+        <small *ngIf="form.get('clave')?.errors?.['pattern']" class="text-danger">Formato incorrecto</small>
+
       }
     </div>
     <button type="submit" class="btn btn-primary w-100" [disabled]="form.invalid">Ingresar</button>
