@@ -1,0 +1,19 @@
+<div class="container">
+  <form action="" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <h2>Desde este panel puede manejar su alarma</h2>
+    <select formControlName="mode" class="form-select mb-3">
+      @for (item of modes; track $index) {
+      <option value="{{ item.id }}">{{ item.name }}</option>
+      }
+    </select>
+     <div class="mb-3">
+      @if (armar) {
+        <button type="submit" class="btn btn-success"><h2>Armar</h2></button>
+
+    }@else {
+       <button type="submit" class="btn btn-danger"><h2>Desarmar</h2></button>
+    }
+     </div>
+  </form>
+</div>
+
